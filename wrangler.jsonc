@@ -1,0 +1,7 @@
+{
+  "name": "lime-orange",
+  "main": "src/worker.js",
+  "compatibility_date": "2025-09-01",
+  "routes": [{ "pattern": "aj10.hu", "zone_name": "aj10.hu", "custom_domain": true }],
+  "assets": { "directory": "./public", "binding": "ASSETS", "run_worker_first": ["/api/*"] }
+}

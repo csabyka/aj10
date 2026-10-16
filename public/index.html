@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lime & Orange – mobilházak a Balatonnál</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#14201a;--mut:#51605a;--bg:#f6f8f4;--lime:#b8d62b;--org:#f4862a;--line:#dde4d9}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font:17px/1.6 'DM Sans',system-ui,sans-serif;color:var(--ink);background:var(--bg)}
+h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;line-height:1.05;letter-spacing:-.02em}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.wrap{max-width:1080px;margin:auto;padding:0 20px}
+header{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;max-width:1080px;margin:auto;gap:12px;flex-wrap:wrap}
+nav a{margin-right:18px;text-decoration:none;font-weight:500}
+.lang button{font:inherit;border:1px solid var(--ink);background:none;padding:4px 10px;border-radius:99px;cursor:pointer}
+.lang button[aria-pressed=true]{background:var(--ink);color:#fff}
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:62vh;margin-top:8px}
+.hero div{padding:clamp(28px,6vw,72px) clamp(20px,4vw,48px);display:flex;flex-direction:column;justify-content:flex-end}
+.hero .l{background:var(--lime)}.hero .o{background:var(--org)}
+.hero h1{font-size:clamp(44px,9vw,104px);font-weight:800}
+.hero p{margin-top:10px;max-width:30ch;font-weight:500}
+.intro{padding:56px 0 8px}.intro h2{font-size:clamp(28px,4vw,44px);max-width:20ch}
+.intro p{color:var(--mut);margin-top:14px;max-width:62ch}
+section{padding:56px 0}
+h2.t{font-size:clamp(28px,4vw,42px);margin-bottom:24px}
+.houses{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.card{border-radius:20px;overflow:hidden;border:1px solid var(--line);background:#fff}
+.ph{aspect-ratio:3/2;display:grid;place-items:center;font:800 40px 'Bricolage Grotesque'}
+.card.lime .ph{background:var(--lime)}.card.orange .ph{background:var(--org)}
+.card .b{padding:22px}
+.card h3{font-size:30px}
+.card ul{margin:14px 0 18px 18px;color:var(--mut)}
+.btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn{padding:10px 18px;border-radius:99px;background:var(--ink);color:#fff;text-decoration:none;font-weight:700;font-size:15px}
+.btn.alt{background:none;color:var(--ink);border:1px solid var(--ink)}
+.dist{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.dist div{border-top:3px solid var(--ink);padding-top:12px}
+.dist b{font:800 44px 'Bricolage Grotesque';display:block}
+.tabs{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.tabs button,.nav button{font:inherit;font-weight:700;border:1px solid var(--ink);background:none;padding:6px 16px;border-radius:99px;cursor:pointer}
+.tabs button[aria-pressed=true]{background:var(--ink);color:#fff}
+.nav{display:flex;gap:8px;margin-bottom:12px;align-items:center}
+.cals{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.m h4{font:800 20px 'Bricolage Grotesque';margin-bottom:8px;text-transform:capitalize}
+.g{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;text-align:center;font-size:14px}
+.g i{font-style:normal;color:var(--mut);font-size:12px}
+.g span{padding:7px 0;border-radius:6px;background:#fff;border:1px solid var(--line)}
+.g span.x{background:var(--ink);color:#fff;border-color:var(--ink);text-decoration:line-through;opacity:.85}
+.g span.e{background:none;border:0}
+.leg{margin-top:12px;color:var(--mut);font-size:14px}
+iframe{width:100%;height:480px;border:0;border-radius:20px}
+button.ph{border:0;padding:0;overflow:hidden;width:100%;color:inherit;cursor:default}
+button.ph img{display:block;width:100%;height:100%;object-fit:cover}
+button.ph.has{cursor:zoom-in;color:transparent}
+dialog{border:0;padding:0;background:transparent;width:100vw;height:100vh;max-width:none;max-height:none}
+dialog::backdrop{background:#000e}
+.lb{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:16px}
+.lb img{max-width:100%;max-height:calc(100vh - 90px);object-fit:contain;border-radius:8px}
+.lb div{display:flex;gap:12px;align-items:center;color:#fff}
+.lb button{font:inherit;color:#fff;background:none;border:1px solid #fff;border-radius:99px;padding:6px 16px;cursor:pointer}
+footer{padding:32px 20px;text-align:center;color:var(--mut);font-size:14px}
+@media(max-width:760px){.hero,.houses,.cals,.dist{grid-template-columns:1fr}.hero{min-height:auto}.hero div{min-height:34vh}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header>
+<nav><a href="#houses" data-i="nHouses"></a><a href="#location" data-i="nLoc"></a><a href="#calendar" data-i="nCal"></a><a href="#tips" data-i="nTips"></a></nav>
+<div class="lang" role="group" aria-label="Language"><button data-l="hu">HU</button> <button data-l="en">EN</button> <button data-l="de">DE</button></div>
+</header>
+
+<div class="wrap"><div class="hero">
+<div class="l"><h1>Lime</h1><p data-i="hero"></p></div>
+<div class="o"><h1>Orange</h1><p data-i="hero"></p></div>
+</div></div>
+
+<div class="wrap">
+<div class="intro"><h2 data-i="introT"></h2><p data-i="introP"></p></div>
+
+<section id="houses"><h2 class="t" data-i="nHouses"></h2>
+<div class="houses">
+<article class="card lime"><button class="ph" data-g="lime" aria-label="Galéria / Gallery">Lime</button><div class="b"><h3>Lime</h3><ul class="feat"></ul>
+<div class="btns"><a class="btn" data-k="lime-airbnb" target="_blank" rel="noopener">Airbnb</a><a class="btn alt" data-k="lime-booking" target="_blank" rel="noopener">Booking.com</a></div></div></article>
+<article class="card orange"><button class="ph" data-g="orange" aria-label="Galéria / Gallery">Orange</button><div class="b"><h3>Orange</h3><ul class="feat"></ul>
+<div class="btns"><a class="btn" data-k="orange-airbnb" target="_blank" rel="noopener">Airbnb</a><a class="btn alt" data-k="orange-booking" target="_blank" rel="noopener">Booking.com</a></div></div></article>
+</div></section>
+
+<section id="location"><h2 class="t" data-i="nLoc"></h2>
+<div class="dist">
+<div><b>10'</b><span data-i="bike"></span></div>
+<div><b>5'</b><span data-i="car"></span></div>
+<div><b>30'</b><span data-i="walk"></span></div>
+</div></section>
+
+<section id="calendar"><h2 class="t" data-i="nCal"></h2>
+<div class="tabs"><button data-h="lime">Lime</button><button data-h="orange">Orange</button></div>
+<div class="nav"><button id="prev" aria-label="←">←</button><button id="next" aria-label="→">→</button></div>
+<div class="cals" id="cals"></div>
+<p class="leg" data-i="legend"></p><p class="leg" id="err" data-i="err" hidden></p></section>
+
+<section id="tips"><h2 class="t" data-i="nTips"></h2>
+<iframe src="https://www.google.com/maps/d/embed?mid=1wmQDqhvkAjPHZAF7AR-M3tXLpBT1d7w&ll=46.969062,17.988979&z=11" loading="lazy" title="Map"></iframe></section>
+</div>
+<dialog id="lb"><div class="lb"><img alt=""><div><button id="gp" aria-label="←">←</button><span id="cnt"></span><button id="gn" aria-label="→">→</button><button id="gx" aria-label="✕">✕</button></div></div></dialog>
+<footer>Lime & Orange</footer>
+
+<script>
+// Hirdetési linkek – az üres értékű gomb automatikusan elrejtődik.
+const LINKS={'lime-airbnb':'https://airbnb.com/h/lime','lime-booking':'https://www.booking.com/hotel/hu/aj10-lime.html','orange-airbnb':'https://airbnb.com/h/orange','orange-booking':''};
+const T={
+hu:{nHouses:'Házak',nLoc:'Elhelyezkedés',nCal:'Foglaltság',nTips:'Ajánlott helyek',hero:'Mobilház 6 főre, privát teraszal.',introT:'Két mobilház, egy nyugodt nyaralás.',introP:'Lime és Orange: egyforma, teljesen felszerelt házak, a Balaton közelében. Foglalj az Airbnb-n vagy a Booking.com-on.',bike:'kerékpárral a Balatonig',car:'autóval a Balatonig',walk:'sétával a Balatonig',legend:'Sötét napok foglaltak. Az érkezés napja számít első foglalt napnak.',
+err:'A foglaltság most nem érhető el ehhez a házhoz. Kérjük, nézd meg az Airbnb vagy Booking.com oldalon.',cat:{egesz:'Külső',terasz:'Terasz',nappali:'Nappali',konyha:'Konyha',nagyhalo:'Háló',kisszoba:'Szoba',furdo:'Fürdő'},
+feat:['6 személy, 3 hálószoba','1 szoba duplaággyal, 2 szoba 2-2 szimpla ággyal','Teljesen felszerelt konyha: hűtő, mikró, kávéfőző','Zuhanyzós fürdő, külön wc','Privát terasz']},
+en:{nHouses:'Houses',nLoc:'Location',nCal:'Availability',nTips:'Recommended places',hero:'Mobile home for 6 with a private terrace.',introT:'Two mobile homes, one relaxed holiday.',introP:'Lime and Orange: identical, fully equipped homes near Lake Balaton. Book on Airbnb or Booking.com.',bike:'by bike to the lake',car:'by car to the lake',walk:'on foot to the lake',legend:'Dark days are booked. The arrival day counts as the first booked day.',
+err:'Availability is currently unavailable for this house. Please check Airbnb or Booking.com.',cat:{egesz:'Exterior',terasz:'Terrace',nappali:'Living room',konyha:'Kitchen',nagyhalo:'Bedroom',kisszoba:'Bedroom',furdo:'Bathroom'},
+feat:['6 guests, 3 bedrooms','1 room with a double bed, 2 rooms with 2 single beds each','Fully equipped kitchen: fridge, microwave, coffee maker','Bathroom with shower, separate toilet','Private terrace']},
+de:{nHouses:'Häuser',nLoc:'Lage',nCal:'Belegung',nTips:'Empfehlungen',hero:'Mobilheim für 6 Personen mit privater Terrasse.',introT:'Zwei Mobilheime, ein entspannter Urlaub.',introP:'Lime und Orange: identische, voll ausgestattete Häuser in der Nähe des Balatons. Buchen Sie über Airbnb oder Booking.com.',bike:'mit dem Rad zum See',car:'mit dem Auto zum See',walk:'zu Fuß zum See',legend:'Dunkle Tage sind belegt. Der Anreisetag zählt als erster belegter Tag.',
+err:'Die Belegung ist für dieses Haus derzeit nicht verfügbar. Bitte auf Airbnb oder Booking.com nachsehen.',cat:{egesz:'Außenansicht',terasz:'Terrasse',nappali:'Wohnzimmer',konyha:'Küche',nagyhalo:'Schlafzimmer',kisszoba:'Schlafzimmer',furdo:'Bad'},
+feat:['6 Personen, 3 Schlafzimmer','1 Zimmer mit Doppelbett, 2 Zimmer mit je 2 Einzelbetten','Voll ausgestattete Küche: Kühlschrank, Mikrowelle, Kaffeemaschine','Dusche, separates WC','Private Terrasse']}};
+const $=(s,r=document)=>[...r.querySelectorAll(s)];
+let st='load',lang=localStorage.getItem('lang')||({hu:'hu',de:'de'}[navigator.language.slice(0,2)]||'en'),house='lime',off=0,booked={};
+const pad=n=>String(n).padStart(2,'0'),iso=(y,m,d)=>`${y}-${pad(m+1)}-${pad(d)}`;
+function setLang(l){lang=l;try{localStorage.setItem('lang',l)}catch(e){}
+document.documentElement.lang=l;
+$('[data-i]').forEach(e=>e.textContent=T[l][e.dataset.i]);
+$('.feat').forEach(u=>u.innerHTML=T[l].feat.map(f=>`<li>${f}</li>`).join(''));
+$('[data-l]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.l===l));
+cal()}
+$('[data-k]').forEach(a=>{const u=LINKS[a.dataset.k];u?a.href=u:a.hidden=true});
+function days(){const s=new Set();(booked[house]||[]).forEach(([a,b])=>{for(let d=new Date(a+'T12:00');d<new Date(b+'T12:00');d.setDate(d.getDate()+1))s.add(iso(d.getFullYear(),d.getMonth(),d.getDate()))});return s}
+function cal(){$('#err')[0].hidden=st==='load'||Array.isArray(booked[house]);const set=days(),now=new Date(),box=$('#cals')[0];box.innerHTML='';
+const wd=[...Array(7)].map((_,i)=>new Intl.DateTimeFormat(lang,{weekday:'narrow'}).format(new Date(2024,0,1+i)));
+for(let k=0;k<2;k++){const f=new Date(now.getFullYear(),now.getMonth()+off+k,1),y=f.getFullYear(),m=f.getMonth(),n=new Date(y,m+1,0).getDate(),lead=(f.getDay()+6)%7;
+let h=`<div class="m"><h4>${new Intl.DateTimeFormat(lang,{month:'long',year:'numeric'}).format(f)}</h4><div class="g">`+wd.map(w=>`<i>${w}</i>`).join('')+'<span class="e"></span>'.repeat(lead);
+for(let d=1;d<=n;d++)h+=`<span class="${set.has(iso(y,m,d))?'x':''}">${d}</span>`;
+box.insertAdjacentHTML('beforeend',h+'</div></div>')}
+$('[data-h]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.h===house))}
+$('[data-l]').forEach(b=>b.onclick=()=>setLang(b.dataset.l));
+$('[data-h]').forEach(b=>b.onclick=()=>{house=b.dataset.h;cal()});
+$('#prev').onclick=()=>{off=Math.max(0,off-1);cal()};$('#next').onclick=()=>{off=Math.min(10,off+1);cal()};
+fetch('/api/availability').then(r=>r.ok?r.json():Promise.reject()).then(d=>{booked=d;st='ok';cal()}).catch(()=>{st='fail';cal()});
+// Galéria
+const PH={lime:['egesz','terasz1','terasz2','terasz3','nappali1','konyha1','konyha2','nagyhalo','kisszoba1','kisszoba2','furdo1','furdo2','furdo3']};
+const dlg=$('#lb')[0],im=$('img',dlg)[0];let gh,gi;
+function show(i){const a=PH[gh];gi=(i+a.length)%a.length;im.src=`img/${gh}_${a[gi]}.webp`;im.alt=T[lang].cat[a[gi].replace(/\d+$/,'')]||'';$('#cnt')[0].textContent=`${gi+1}/${a.length}`}
+$('[data-g]').forEach(b=>{const a=PH[b.dataset.g];if(!a)return;b.textContent='';const m=new Image();m.src=`img/${b.dataset.g}_${a[0]}.webp`;m.alt='';m.width=1200;m.height=800;b.append(m);b.classList.add('has');b.onclick=()=>{gh=b.dataset.g;show(0);dlg.showModal()}});
+$('#gp')[0].onclick=()=>show(gi-1);$('#gn')[0].onclick=()=>show(gi+1);$('#gx')[0].onclick=()=>dlg.close();
+dlg.onclick=e=>{if(e.target===dlg||e.target.classList.contains('lb'))dlg.close()};
+dlg.onkeydown=e=>{if(e.key==='ArrowLeft')show(gi-1);if(e.key==='ArrowRight')show(gi+1)};
+setLang(lang);
+</script>
+</body>
+</html>

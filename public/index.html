@@ -148,7 +148,7 @@ box.insertAdjacentHTML('beforeend',h+'</div></div>')}
 $('[data-h]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.h===house))}
 $('[data-l]').forEach(b=>b.onclick=()=>setLang(b.dataset.l));
 $('[data-h]').forEach(b=>b.onclick=()=>{house=b.dataset.h;cal()});
-$('#prev').onclick=()=>{off=Math.max(0,off-1);cal()};$('#next').onclick=()=>{off=Math.min(10,off+1);cal()};
+$('#prev')[0].onclick=()=>{off=Math.max(0,off-1);cal()};$('#next')[0].onclick=()=>{off=Math.min(10,off+1);cal()};
 fetch('/api/availability').then(r=>r.ok?r.json():Promise.reject()).then(d=>{booked=d;st='ok';cal()}).catch(()=>{st='fail';cal()});
 // Galéria
 const PH={lime:['egesz','terasz1','terasz2','terasz3','nappali1','konyha1','konyha2','nagyhalo','kisszoba1','kisszoba2','furdo1','furdo2','furdo3']};

@@ -69,7 +69,7 @@ dialog::backdrop{background:#000e}
 .lb div{display:flex;gap:12px;align-items:center;color:#fff}
 .lb button{font:inherit;color:#fff;background:none;border:1px solid #fff;border-radius:99px;padding:6px 16px;cursor:pointer}
 footer{padding:32px 20px;text-align:center;color:var(--mut);font-size:14px}
-@media(max-width:760px){.hero,.houses,.cals,.dist{grid-template-columns:1fr}.hero{min-height:auto}.hero div{min-height:34vh}}
+@media(max-width:760px){.hero,.houses,.cals,.dist{grid-template-columns:1fr}.hero{min-height:auto}.hero div{min-height:34vh}.top{display:flex;flex-direction:column}.top .intro{order:-1;padding:16px 0 32px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
@@ -79,13 +79,14 @@ footer{padding:32px 20px;text-align:center;color:var(--mut);font-size:14px}
 <div class="lang" role="group" aria-label="Language"><button data-l="hu">HU</button> <button data-l="en">EN</button> <button data-l="de">DE</button></div>
 </header>
 
-<div class="wrap"><div class="hero">
+<div class="wrap top"><div class="hero">
 <div class="l"><h1>Lime</h1><p data-i="hero"></p></div>
 <div class="o"><h1>Orange</h1><p data-i="hero"></p></div>
-</div></div>
+</div>
+<div class="intro"><h2 data-i="introT"></h2><p data-i="introP"></p></div>
+</div>
 
 <div class="wrap">
-<div class="intro"><h2 data-i="introT"></h2><p data-i="introP"></p></div>
 
 <section id="houses"><h2 class="t" data-i="nHouses"></h2>
 <div class="houses">

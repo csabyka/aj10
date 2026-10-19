@@ -160,7 +160,7 @@ dlg.onclick=e=>{if(e.target===dlg||e.target.classList.contains('lb'))dlg.close()
 dlg.onkeydown=e=>{if(e.key==='ArrowLeft')show(gi-1);if(e.key==='ArrowRight')show(gi+1)};
 setLang(lang);
 </script>
-<div id="ck" hidden style="position:fixed;inset:auto 12px 12px 12px;max-width:520px;margin:auto;background:#14201a;color:#fff;padding:14px 16px;border-radius:14px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;font-size:14px;z-index:9">
+<div id="ck" style="position:fixed;inset:auto 12px 12px 12px;max-width:520px;margin:auto;background:#14201a;color:#fff;padding:14px 16px;border-radius:14px;display:none;gap:12px;align-items:center;flex-wrap:wrap;font-size:14px;z-index:9">
 <span id="ckt" style="flex:1 1 220px"></span>
 <button id="cky" style="font:inherit;font-weight:700;border:0;border-radius:99px;padding:6px 16px;background:#b8d62b;cursor:pointer"></button>
 <button id="ckn" style="font:inherit;color:#fff;background:none;border:1px solid #fff;border-radius:99px;padding:6px 16px;cursor:pointer"></button>
@@ -182,8 +182,8 @@ const t=X[document.documentElement.lang]||X.en,b=document.getElementById('ck');
 document.getElementById('ckt').textContent=t[0];
 document.getElementById('cky').textContent=t[1];
 document.getElementById('ckn').textContent=t[2];
-b.hidden=false;
-const set=v=>{try{localStorage.setItem('ga',v)}catch(e){}b.hidden=true};
+b.style.display='flex';
+const set=v=>{try{localStorage.setItem('ga',v)}catch(e){}b.style.display='none'};
 document.getElementById('cky').onclick=()=>{set('y');load()};
 document.getElementById('ckn').onclick=()=>set('n');
 })();
